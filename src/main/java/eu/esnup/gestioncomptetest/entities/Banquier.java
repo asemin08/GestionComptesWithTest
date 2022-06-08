@@ -1,6 +1,7 @@
 package eu.esnup.gestioncomptetest.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 public class Banquier {
 
@@ -20,7 +22,7 @@ public class Banquier {
     private String nom;
     private String prenom;
 
-    @OneToMany
+    @OneToMany(mappedBy = "codeClient")
     private Set<Client> clients;
 
 }
