@@ -20,12 +20,23 @@ pipeline {
                 ])
             }
         }
+
         stage('Compile du projet') {
             steps {
                 sh("mvn compile")
             }
         }
 
+        stage('test unitaire du projet') {
+            steps {
+                sh("mvn test")
+            }
+            post {
+                success {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
 
     }
 }
