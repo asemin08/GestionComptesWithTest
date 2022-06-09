@@ -7,6 +7,13 @@ pipeline {
         GIT_BRANCH = "main"
     }
 
+    stage("delete current workspace"){
+        steps{
+            deleteDir()
+        }
+    }
+
+
     stage('récupération du code source et récupération de la bonne branch') {
         steps {
             checkout([$class: 'GitSCM',
