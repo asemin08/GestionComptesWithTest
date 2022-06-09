@@ -35,7 +35,7 @@ pipeline {
             post {
                 success{
                     junit '**/target/surefire-reports/*.xml'
-                    emailext to: 'allan.semin@gmail.com'
+                    emailext body: '', subject: '', to: 'allan.semin@gmail.com'
                 }
             }
         }
