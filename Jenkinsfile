@@ -34,7 +34,7 @@ pipeline {
             post {
                 success {
                     junit '**/target/surefire-reports/*.xml'
-                    mail body: 'test ok !', subject: 'Test ok ! ', to: 'semin.allan@gmail.com, allan.semin@gmail.com'
+                    mail body: 'test ok !', subject: 'Test: Job '${env.JOB_NAME}' Status: currentBuild.result, to: 'semin.allan@gmail.com, allan.semin@gmail.com'
                 }
             }
         }
