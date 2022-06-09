@@ -1,6 +1,6 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Client;
+import eu.esnup.gestioncomptetest.domaine.Client;
 import eu.esnup.gestioncomptetest.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

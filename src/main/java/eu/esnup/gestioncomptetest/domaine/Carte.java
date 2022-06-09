@@ -1,28 +1,24 @@
-package eu.esnup.gestioncomptetest.entities;
+package eu.esnup.gestioncomptetest.domaine;
 
-import eu.esnup.gestioncomptetest.enums.TypeCompte;
+import eu.esnup.gestioncomptetest.enums.TypeCarte;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Compte {
+public class Carte {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codeCompte;
-    private double solde;
-    private Date dateCreation;
+    private Long codeCarte;
 
     @Enumerated(EnumType.STRING)
-    private TypeCompte type;
-
+    private TypeCarte typeCarte;
 }

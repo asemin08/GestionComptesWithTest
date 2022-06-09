@@ -1,19 +1,26 @@
 pipeline {
     agent any
 
+    parameters {
+	    // choice(
+        //     choices: ['prod' , 'test'],
+        //     description: 'Choisir entre le code de prod ou de test',
+        //     name: 'ENV'
+        // )
+    }
+
     environment {
-        GIT_PATH = "https://github.com/MaximeDzN/myResto-spring.git"
+        GIT_PATH = "https://github.com/asemin08/GestionComptesWithTest.git"
         GIT_BRANCH = "main"
     }
 
     stages {
-	    stage('Suppression workspace') {
-            steps {
-                deleteDir()
+        stage('récupération du code source et récupération de la bonne branch') {
+	        when {
+                not {
+                    equals expected: true, actual: params.destroy
+                }
             }
-        }
-
-        stage('récupération du code source') {
             steps {
                 checkout([$class: 'GitSCM',
                     branches: [[name: "*/${GIT_BRANCH}"]],
@@ -26,7 +33,6 @@ pipeline {
                 ])
             }
         }
-        
 
     }
 }

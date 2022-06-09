@@ -1,6 +1,6 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Carte;
+import eu.esnup.gestioncomptetest.domaine.Carte;
 import eu.esnup.gestioncomptetest.repository.CarteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,5 @@
-package eu.esnup.gestioncomptetest.entities;
+package eu.esnup.gestioncomptetest.domaine;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,16 +14,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Banquier {
-
-
+public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codeBanquier;
+    private Long codeClient;
     private String nom;
     private String prenom;
 
-    @OneToMany(mappedBy = "codeClient")
-    private Set<Client> clients;
+    @OneToMany
+    private Set<Compte> comptes;
+
+    @OneToOne
+    private Carte carte;
 
 }

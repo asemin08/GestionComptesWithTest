@@ -1,6 +1,6 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Compte;
+import eu.esnup.gestioncomptetest.domaine.Compte;
 import eu.esnup.gestioncomptetest.enums.TypeCompte;
 import eu.esnup.gestioncomptetest.repository.CompteRepository;
 import org.hamcrest.MatcherAssert;

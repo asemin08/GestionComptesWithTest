@@ -1,6 +1,6 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Carte;
+import eu.esnup.gestioncomptetest.domaine.Carte;
 import eu.esnup.gestioncomptetest.enums.TypeCarte;
 import eu.esnup.gestioncomptetest.repository.CarteRepository;
 import org.hamcrest.MatcherAssert;

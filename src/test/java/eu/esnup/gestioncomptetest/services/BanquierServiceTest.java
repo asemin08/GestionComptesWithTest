@@ -1,7 +1,7 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Banquier;
-import eu.esnup.gestioncomptetest.entities.Client;
+import eu.esnup.gestioncomptetest.domaine.Banquier;
+import eu.esnup.gestioncomptetest.domaine.Client;
 import eu.esnup.gestioncomptetest.repository.BanquierRepository;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;

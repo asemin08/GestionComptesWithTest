@@ -1,6 +1,5 @@
-package eu.esnup.gestioncomptetest.entities;
+package eu.esnup.gestioncomptetest.domaine;
 
-import eu.esnup.gestioncomptetest.enums.TypeCarte;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +13,16 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Carte {
+public class Banquier {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codeCarte;
+    private Long codeBanquier;
+    private String nom;
+    private String prenom;
 
-    @Enumerated(EnumType.STRING)
-    private TypeCarte typeCarte;
+    @OneToMany(mappedBy = "codeClient")
+    private Set<Client> clients;
+
 }

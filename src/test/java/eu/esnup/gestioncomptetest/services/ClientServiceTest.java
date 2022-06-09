@@ -1,12 +1,10 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Client;
-import eu.esnup.gestioncomptetest.entities.Carte;
-import eu.esnup.gestioncomptetest.entities.Client;
-import eu.esnup.gestioncomptetest.entities.Compte;
+import eu.esnup.gestioncomptetest.domaine.Client;
+import eu.esnup.gestioncomptetest.domaine.Carte;
+import eu.esnup.gestioncomptetest.domaine.Compte;
 import eu.esnup.gestioncomptetest.enums.TypeCarte;
 import eu.esnup.gestioncomptetest.enums.TypeCompte;
-import eu.esnup.gestioncomptetest.repository.BanquierRepository;
 import eu.esnup.gestioncomptetest.repository.ClientRepository;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;

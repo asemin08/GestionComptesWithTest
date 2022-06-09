@@ -1,5 +1,4 @@
-package eu.esnup.gestioncomptetest.entities;
-
+package eu.esnup.gestioncomptetest.domaine;
 
 import eu.esnup.gestioncomptetest.enums.TypeCompte;
 import lombok.AllArgsConstructor;
@@ -8,24 +7,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @Entity
-public class Client {
+public class Compte {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long codeClient;
-    private String nom;
-    private String prenom;
+    private Long codeCompte;
+    private double solde;
+    private Date dateCreation;
 
-    @OneToMany
-    private Set<Compte> comptes;
-
-    @OneToOne
-    private Carte carte;
+    @Enumerated(EnumType.STRING)
+    private TypeCompte type;
 
 }

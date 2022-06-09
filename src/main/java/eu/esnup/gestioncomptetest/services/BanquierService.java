@@ -1,6 +1,6 @@
 package eu.esnup.gestioncomptetest.services;
 
-import eu.esnup.gestioncomptetest.entities.Banquier;
+import eu.esnup.gestioncomptetest.domaine.Banquier;
 import eu.esnup.gestioncomptetest.repository.BanquierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
