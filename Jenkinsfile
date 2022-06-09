@@ -1,21 +1,19 @@
 pipeline {
     agent any
 
-
     environment {
-        GIT_PATH = "https://github.com/asemin08/GestionComptesWithTest.git"
+        GIT_PATH = "https://github.com/MaximeDzN/myResto-spring.git"
         GIT_BRANCH = "main"
     }
 
-    stages{
-        stage("delete current workspace"){
-            steps{
+    stages {
+	    stage('Suppression workspace') {
+            steps {
                 deleteDir()
             }
         }
 
-
-        stage('récupération du code source et récupération de la bonne branch') {
+        stage('récupération du code source') {
             steps {
                 checkout([$class: 'GitSCM',
                     branches: [[name: "*/${GIT_BRANCH}"]],
@@ -28,17 +26,7 @@ pipeline {
                 ])
             }
         }
+        
 
-        stage('Compile') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
     }
 }
