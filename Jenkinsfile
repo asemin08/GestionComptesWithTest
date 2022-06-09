@@ -27,19 +27,32 @@ pipeline {
             }
         }
 
-        stage('test unitaire du projet') {
+        
+        stage('test du projet') {
             steps {
                 sh("mvn test")
             }
             post {
-                success {
+                success{
                     junit '**/target/surefire-reports/*.xml'
-                    emailext to: 'allan.semin@gmail.com',
-                             body: 'ettsdfds', 
-                             subject: 'test', 
+                    emailext body: 'test', subject: 'test', to: 'allan.semin@gmail.com'
                 }
             }
         }
+
+        // stage('test unitaire du projet') {
+        //     steps {
+        //         sh("mvn test")
+        //     }
+        //     post {
+        //         success {
+        //             junit '**/target/surefire-reports/*.xml'
+        //             emailext to: 'allan.semin@gmail.com',
+        //                      body: 'ettsdfds', 
+        //                      subject: 'test', 
+        //         }
+        //     }
+        // }
 
     }
 }
