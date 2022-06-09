@@ -16,11 +16,6 @@ pipeline {
 
     stages {
         stage('récupération du code source et récupération de la bonne branch') {
-	        when {
-                not {
-                    equals expected: true, actual: params.destroy
-                }
-            }
             steps {
                 checkout([$class: 'GitSCM',
                     branches: [[name: "*/${GIT_BRANCH}"]],
@@ -33,6 +28,12 @@ pipeline {
                 ])
             }
         }
+        stage('Compile du projet') {
+            steps {
+                sh("mvn compile")
+            }
+        }
+
 
     }
 }
