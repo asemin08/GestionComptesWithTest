@@ -1,15 +1,13 @@
 package eu.esnup.gestioncomptetest.services;
 
 import eu.esnup.gestioncomptetest.entities.Carte;
-import eu.esnup.gestioncomptetest.repository.BanquierRepository;
 import eu.esnup.gestioncomptetest.repository.CarteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CarteService {
@@ -33,11 +31,11 @@ public class CarteService {
         carteRepository.deleteById(id);
     }
 
-    public Carte get(Long id){
-        return carteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Optional<Carte> get(Long id){
+        return carteRepository.findById(id);
     }
 
-    public Set<Carte> getAll(){
-        return new HashSet<>(carteRepository.findAll());
+    public List<Carte> getAll(){
+        return new ArrayList<>(carteRepository.findAll());
     }
 }

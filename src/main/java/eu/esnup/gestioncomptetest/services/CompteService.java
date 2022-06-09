@@ -3,12 +3,11 @@ package eu.esnup.gestioncomptetest.services;
 import eu.esnup.gestioncomptetest.entities.Compte;
 import eu.esnup.gestioncomptetest.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompteService {
@@ -32,12 +31,12 @@ public class CompteService {
         compteRepository.deleteById(id);
     }
 
-    public Compte get(Long id){
-        return compteRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Optional<Compte> get(Long id){
+        return compteRepository.findById(id);
     }
 
-    public Set<Compte> getAll(){
-        return new HashSet<>(compteRepository.findAll());
+    public List<Compte> getAll(){
+        return new ArrayList<>(compteRepository.findAll());
     }
 
 }

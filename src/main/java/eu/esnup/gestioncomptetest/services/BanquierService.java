@@ -1,15 +1,13 @@
 package eu.esnup.gestioncomptetest.services;
 
 import eu.esnup.gestioncomptetest.entities.Banquier;
-import eu.esnup.gestioncomptetest.entities.Client;
 import eu.esnup.gestioncomptetest.repository.BanquierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BanquierService {
@@ -33,11 +31,11 @@ public class BanquierService {
         banquierRepository.deleteById(id);
     }
 
-    public Banquier get(Long id){
-        return banquierRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Optional<Banquier> get(Long id){
+        return banquierRepository.findById(id);
     }
 
-    public Set<Banquier> getAll(){
-        return new HashSet<>(banquierRepository.findAll());
+    public List<Banquier> getAll(){
+        return new ArrayList<>(banquierRepository.findAll());
     }
 }

@@ -17,7 +17,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @SpringBootTest
 public class CarteServiceTest {
@@ -45,7 +44,7 @@ public class CarteServiceTest {
 
         Mockito.when(carteRepository.findAll()).thenReturn(carteList);
 
-        Set<Carte> cartes = carteService.getAll();
+        List<Carte> cartes = carteService.getAll();
         MatcherAssert.assertThat(cartes.size(), Matchers.equalTo(carteListSize));
         Mockito.verify(carteRepository).findAll();
     }
@@ -59,9 +58,9 @@ public class CarteServiceTest {
         Optional<Carte> carteInitial = Optional.ofNullable(Carte.builder().codeCarte(codeCarte).typeCarte(TypeCarte.CLASSIQUE).build());
 
         Mockito.when(carteRepository.findById(codeCarte)).thenReturn(carteInitial);
-        Carte carte = carteService.get(codeCarte);
+        Optional<Carte> carte = carteService.get(codeCarte);
 
-        MatcherAssert.assertThat(carte, Matchers.hasToString("Carte(codeCarte=1, typeCarte=CLASSIQUE)"));
+        MatcherAssert.assertThat(carte.get().getTypeCarte(), Matchers.hasToString("CLASSIQUE"));
         Mockito.verify(carteRepository).findById(codeCarte);
     }
 

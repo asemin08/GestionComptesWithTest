@@ -3,12 +3,11 @@ package eu.esnup.gestioncomptetest.services;
 import eu.esnup.gestioncomptetest.entities.Client;
 import eu.esnup.gestioncomptetest.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientService {
@@ -32,12 +31,12 @@ public class ClientService {
         clientRepository.deleteById(id);
     }
 
-    public Client get(Long id){
-        return clientRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    public Optional<Client> get(Long id){
+        return clientRepository.findById(id);
     }
 
-    public Set<Client> getAll(){
-        return new HashSet<>(clientRepository.findAll());
+    public List<Client> getAll(){
+        return new ArrayList<>(clientRepository.findAll());
     }
 
 }
