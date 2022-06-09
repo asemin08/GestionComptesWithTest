@@ -35,24 +35,10 @@ pipeline {
             post {
                 success{
                     junit '**/target/surefire-reports/*.xml'
-                    mail body: 'test', subject: 'Build : ' + ${currentBuild.number} + ' : test ok!', to: 'semin.allan@gmail.com'
+                    emailext to: 'allan.semin@gmail.com'
                 }
             }
         }
-
-        // stage('test unitaire du projet') {
-        //     steps {
-        //         sh("mvn test")
-        //     }
-        //     post {
-        //         success {
-        //             junit '**/target/surefire-reports/*.xml'
-        //             emailext to: 'allan.semin@gmail.com',
-        //                      body: 'ettsdfds', 
-        //                      subject: 'test', 
-        //         }
-        //     }
-        // }
 
     }
 }
