@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-	    // choice(
-        //     choices: ['prod' , 'test'],
-        //     description: 'Choisir entre le code de prod ou de test',
-        //     name: 'ENV'
-        // )
-    }
-
     environment {
         GIT_PATH = "https://github.com/asemin08/GestionComptesWithTest.git"
         GIT_BRANCH = "main"
