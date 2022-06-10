@@ -56,6 +56,12 @@ pipeline {
             }
         }
 
+        stage ('Test callpipeline') {
+            steps {
+                build job: 'pipeline1',
+            }
+        }
+
         
 
     }
