@@ -57,7 +57,7 @@ pipeline {
         }
 
         stage('Test if file exit') {
-            step{
+            steps{
                 sh("ls")
                 sh("ls " + ${env.WORKSPACE})
             }
