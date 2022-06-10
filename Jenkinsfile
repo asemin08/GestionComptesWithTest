@@ -43,6 +43,11 @@ pipeline {
             }
         }
 
+        stage('Génération de la documentation du projet') {
+            steps {
+                sh("mvn javadoc:javadoc")
+            }
+        }
 
                 
         stage('packaging du projet') {
