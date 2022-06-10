@@ -95,7 +95,7 @@ public class ClientServiceTest {
         Mockito.when(clientRepository.findAll()).thenReturn(clientList);
 
         List<Client> Clients = clientService.getAll();
-        MatcherAssert.assertThat(Clients.size(), Matchers.equalTo(8));
+        MatcherAssert.assertThat(Clients.size(), Matchers.equalTo(clientListSize));
         Mockito.verify(clientRepository).findAll();
     }
 
