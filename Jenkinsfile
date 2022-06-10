@@ -58,7 +58,7 @@ pipeline {
 
         stage('Création image docker') {
             steps {
-                build job: 'pipeline'
+                build job: 'pipeline1'
             }
         }
 
