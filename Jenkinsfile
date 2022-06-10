@@ -56,9 +56,9 @@ pipeline {
             }
         }
 
-        stage ('Test callpipeline') {
+        stage('Création image docker') {
             steps {
-                build job: 'pipeline1',
+                build job: 'pipeline'
             }
         }
 
