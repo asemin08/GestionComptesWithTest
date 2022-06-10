@@ -58,7 +58,6 @@ pipeline {
 
         stage('Déploiement du projet') {
             steps {
-                // echo "Current workspace is ${env.WORKSPACE}"
                 build : 'Deploiment-Terraform'
             }
         }
