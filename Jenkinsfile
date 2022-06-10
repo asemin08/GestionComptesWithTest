@@ -23,7 +23,7 @@ pipeline {
 
         stage('Compile du projet') {
             steps {
-                sh("mvn compile")
+                sh("mvn clean compile")
             }
         }
 
@@ -56,18 +56,12 @@ pipeline {
             }
         }
 
-        stage('Test if file exit') {
-            steps{
-                sh("ls")
-                sh("ls " + ${env.WORKSPACE})
+        stage('Déploiement du projet') {
+            steps {
+                echo "Current workspace is ${env.WORKSPACE}"
+                build : 'Deploiment-Terraform'
             }
         }
-
-        // stage('Création image docker') {
-        //     steps {
-        //         build job: 'Deploiment-Terraform'
-        //     }
-        // }
 
         
 
