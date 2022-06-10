@@ -56,11 +56,18 @@ pipeline {
             }
         }
 
-        stage('Création image docker') {
-            steps {
-                build job: 'Deploiment-Terraform'
+        stage('Test if file exit') {
+            step{
+                sh("ls")
+                sh("ls " + ${env.WORKSPACE})
             }
         }
+
+        // stage('Création image docker') {
+        //     steps {
+        //         build job: 'Deploiment-Terraform'
+        //     }
+        // }
 
         
 
