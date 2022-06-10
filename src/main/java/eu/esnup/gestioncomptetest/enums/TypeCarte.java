@@ -1,5 +1,19 @@
 package eu.esnup.gestioncomptetest.enums;
 
+/**
+ * The enum Type carte.
+ */
 public enum TypeCarte {
-    JEUNE , CLASSIQUE, PRENIUM
+    /**
+     * Jeune type carte.
+     */
+    JEUNE ,
+    /**
+     * Classique type carte.
+     */
+    CLASSIQUE,
+    /**
+     * Prenium type carte.
+     */
+    PRENIUM
 }

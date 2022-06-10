@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Date;
 
+/**
+ * The type Compte.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

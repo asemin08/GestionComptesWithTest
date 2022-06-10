@@ -18,6 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Carte service test.
+ */
 @SpringBootTest
 public class CarteServiceTest {
 
@@ -27,11 +30,17 @@ public class CarteServiceTest {
     @InjectMocks
     private CarteService carteService;
 
+    /**
+     * Before each.
+     */
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
     }
 
+    /**
+     * Get all cartes.
+     */
     @Test
     @DisplayName("Recupéres toutes les cartes")
     public void getAllCartes(){
@@ -49,6 +58,9 @@ public class CarteServiceTest {
         Mockito.verify(carteRepository).findAll();
     }
 
+    /**
+     * Get carte.
+     */
     @Test
     @DisplayName("Recupéres une cartes")
     public void getCarte(){
@@ -64,6 +76,9 @@ public class CarteServiceTest {
         Mockito.verify(carteRepository).findById(codeCarte);
     }
 
+    /**
+     * Create carte.
+     */
     @Test
     @DisplayName("Ajouter une cartes")
     public void createCarte(){
@@ -78,6 +93,9 @@ public class CarteServiceTest {
 
     }
 
+    /**
+     * Update carte.
+     */
     @Test
     @DisplayName("Modifier une carte")
     public void updateCarte(){
@@ -92,6 +110,9 @@ public class CarteServiceTest {
         Mockito.verify(carteRepository).save(carteInitial);
     }
 
+    /**
+     * Detele carte.
+     */
     @Test
     @DisplayName("Supprimer une carte")
     public void deteleCarte(){

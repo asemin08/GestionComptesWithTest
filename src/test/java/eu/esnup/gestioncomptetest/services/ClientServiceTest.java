@@ -22,11 +22,23 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
 
+/**
+ * The type Client service test.
+ */
 @SpringBootTest
 public class ClientServiceTest {
 
+    /**
+     * The Local date time.
+     */
     public LocalDateTime localDateTime = LocalDateTime.now();
+    /**
+     * The Instant.
+     */
     public Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+    /**
+     * The Date.
+     */
     public Date date = Date.from(instant);
 
     @Mock
@@ -34,11 +46,26 @@ public class ClientServiceTest {
 
     @InjectMocks
     private ClientService clientService;
+    /**
+     * The Compte set 1.
+     */
     public Set<Compte> compteSet1 = new HashSet<>();
+    /**
+     * The Carte jeune.
+     */
     public Carte carteJeune;
+    /**
+     * The Carte classique.
+     */
     public Carte carteClassique;
+    /**
+     * The Carte prenium.
+     */
     public Carte cartePrenium;
 
+    /**
+     * Before each.
+     */
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
@@ -51,6 +78,9 @@ public class ClientServiceTest {
 
     }
 
+    /**
+     * Get all clients.
+     */
     @Test
     @DisplayName("Recupéres tous les Clients")
     public void getAllClients(){
@@ -69,6 +99,9 @@ public class ClientServiceTest {
         Mockito.verify(clientRepository).findAll();
     }
 
+    /**
+     * Get client.
+     */
     @Test
     @DisplayName("Recupéres un client")
     public void getClient(){
@@ -84,6 +117,9 @@ public class ClientServiceTest {
         Mockito.verify(clientRepository).findById(codeClient);
     }
 
+    /**
+     * Create banquier.
+     */
     @Test
     @DisplayName("Ajouter un client")
     public void createBanquier(){
@@ -98,6 +134,9 @@ public class ClientServiceTest {
 
     }
 
+    /**
+     * Update banquier.
+     */
     @Test
     @DisplayName("Modifier un Client")
     public void updateBanquier(){
@@ -112,6 +151,9 @@ public class ClientServiceTest {
         Mockito.verify(clientRepository).save(clientInitital);
     }
 
+    /**
+     * Detele banquier.
+     */
     @Test
     @DisplayName("Supprimer un Client")
     public void deteleBanquier(){

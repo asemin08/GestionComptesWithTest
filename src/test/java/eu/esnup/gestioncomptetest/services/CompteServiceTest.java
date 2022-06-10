@@ -19,6 +19,9 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.*;
 
+/**
+ * The type Compte service test.
+ */
 @SpringBootTest
 public class CompteServiceTest {
 
@@ -28,15 +31,30 @@ public class CompteServiceTest {
     @InjectMocks
     private CompteService compteService;
 
+    /**
+     * Before each.
+     */
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
     }
 
+    /**
+     * The Local date time.
+     */
     public LocalDateTime localDateTime = LocalDateTime.now();
+    /**
+     * The Instant.
+     */
     public Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+    /**
+     * The Date.
+     */
     public Date date = Date.from(instant);
 
+    /**
+     * Get all comptes.
+     */
     @Test
     @DisplayName("Recupéres tous les comptes")
     public void getAllComptes(){
@@ -54,6 +72,9 @@ public class CompteServiceTest {
         Mockito.verify(compteRepository).findAll();
     }
 
+    /**
+     * Get compte.
+     */
     @Test
     @DisplayName("Recupéres un compte")
     public void getCompte(){
@@ -69,6 +90,9 @@ public class CompteServiceTest {
         Mockito.verify(compteRepository).findById(codeCompte);
     }
 
+    /**
+     * Create compte.
+     */
     @Test
     @DisplayName("Ajouter un compte")
     public void createCompte(){
@@ -83,6 +107,9 @@ public class CompteServiceTest {
 
     }
 
+    /**
+     * Update compte.
+     */
     @Test
     @DisplayName("Modifier un compte")
     public void updateCompte(){
@@ -97,6 +124,9 @@ public class CompteServiceTest {
         Mockito.verify(compteRepository).save(compteInitial);
     }
 
+    /**
+     * Detele compte.
+     */
     @Test
     @DisplayName("Supprimer une compte")
     public void deteleCompte(){

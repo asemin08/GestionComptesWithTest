@@ -8,6 +8,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * The type Banquier.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

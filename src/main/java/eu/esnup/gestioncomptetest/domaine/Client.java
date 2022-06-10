@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.Set;
 
+/**
+ * The type Client.
+ */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

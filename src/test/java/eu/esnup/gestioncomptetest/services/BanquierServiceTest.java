@@ -16,6 +16,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
 
+/**
+ * The type Banquier service test.
+ */
 @SpringBootTest
 public class BanquierServiceTest {
 
@@ -24,11 +27,23 @@ public class BanquierServiceTest {
 
     @InjectMocks
     private BanquierService banquierService;
+    /**
+     * The Client set 1.
+     */
     public Set<Client> clientSet1 = new HashSet<>();
+    /**
+     * The Client set 2.
+     */
     public Set<Client> clientSet2 = new HashSet<>();
+    /**
+     * The Client set 3.
+     */
     public Set<Client> clientSet3 = new HashSet<>();
 
 
+    /**
+     * Before each.
+     */
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
@@ -46,7 +61,9 @@ public class BanquierServiceTest {
     }
 
 
-
+    /**
+     * Get all banquiers.
+     */
     @Test
     @DisplayName("Recupéres tous les banquiers")
     public void getAllBanquiers(){
@@ -65,6 +82,9 @@ public class BanquierServiceTest {
         Mockito.verify(banquierRepository).findAll();
     }
 
+    /**
+     * Get banquier.
+     */
     @Test
     @DisplayName("Recupéres un banquier")
     public void getBanquier(){
@@ -80,6 +100,9 @@ public class BanquierServiceTest {
         Mockito.verify(banquierRepository).findById(codeBanquier);
     }
 
+    /**
+     * Create banquier.
+     */
     @Test
     @DisplayName("Ajouter un banquier")
     public void createBanquier(){
@@ -94,6 +117,9 @@ public class BanquierServiceTest {
 
     }
 
+    /**
+     * Update banquier.
+     */
     @Test
     @DisplayName("Modifier un Banquier")
     public void updateBanquier(){
@@ -108,6 +134,9 @@ public class BanquierServiceTest {
         Mockito.verify(banquierRepository).save(banquierInitital);
     }
 
+    /**
+     * Detele banquier.
+     */
     @Test
     @DisplayName("Supprimer un Banquier")
     public void deteleBanquier(){
