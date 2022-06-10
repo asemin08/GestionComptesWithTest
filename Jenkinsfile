@@ -58,7 +58,7 @@ pipeline {
 
         stage('Déploiement du projet') {
             steps {
-                build : 'Deploiment-Terraform'
+                build job: 'Deploiment-Terraform', parameters: [string(name: 'PathOfJar', value: 'ddffdf')]
             }
         }
 
