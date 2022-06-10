@@ -58,7 +58,7 @@ pipeline {
 
         stage('Création image docker') {
             steps {
-                build job: 'pipeline1'
+                build job: 'Deploiment-Terraform'
             }
         }
 
