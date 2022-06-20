@@ -19,15 +19,15 @@
 
     <distributionManagement>
         <repository>
-            <id>myserver</id>
+            <id>my-maven-repo</id>
             <name>Internal Releases</name>
-            <url>http://146.59.154.110:8081/repository/maven-releases/</url>
+            <url>http://146.59.154.110:8081/nexus/repository/maven-releases/</url>
         </repository>
 
         <snapshotRepository>
-            <id>myserver</id>
+            <id>my-maven-repo</id>
             <name>Internal Releases</name>
-            <url>http://146.59.154.110:8081/repository/maven-snapshot/</url>
+            <url>http://146.59.154.110:8081/nexus/repository/maven-snapshots/</url>
         </snapshotRepository>
 
     </distributionManagement>
