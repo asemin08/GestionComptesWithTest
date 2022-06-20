@@ -56,16 +56,11 @@ pipeline {
             }
         }
 
-//         stage('Déploiement du projet') {
-//             steps {
-//                 dir("target") {
-//                     sh("mv GestionCompteTest-0.0.1-SNAPSHOT.jar  app.jar")
-//                     sh("cp app.jar ../")
-//                 }  
-                
-//                 build job: 'Deploiment-Terraform', parameters: [string(name: 'PathOfJar', value: env.WORKSPACE), string(name: 'appName', value: 'app.jar')]
-//             }
-//         }
+        stage('Nexus archive') {
+            steps {
+                sh("mvn deploy -DskipTests -Dmaven.install.skip=true")
+            }
+        }
 
         
 
