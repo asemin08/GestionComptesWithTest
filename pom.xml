@@ -16,6 +16,22 @@
     <properties>
         <java.version>17</java.version>
     </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>myserver</id>
+            <name>Internal Releases</name>
+            <url>http://146.59.154.110:8081/repository/maven-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>myserver</id>
+            <name>Internal Releases</name>
+            <url>http://146.59.154.110:8081/repository/maven-snapshot/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
