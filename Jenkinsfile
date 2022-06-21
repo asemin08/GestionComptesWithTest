@@ -63,7 +63,7 @@ pipeline {
             }
         }
 
-        stage('Lauch ') {
+        stage('lancement du build  pour créer l\'image') {
             steps {
                 build job: 'BuildJavaImage', parameters: [string(value: 'openjdk', name: 'image'), string(value: '17-jdk-slim', name: 'tag'), string(value: 'verkeur08/gestioncomptes', name: 'newImage')]            
             }
