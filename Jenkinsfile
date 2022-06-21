@@ -56,13 +56,22 @@ pipeline {
             }
         }
 
-        stage('Nexus archive') {
+        stage('Maven nexus archive') {
             steps {
                 sh("mvn deploy -DskipTests -Dmaven.install.skip=true")
             }
         }
 
-        
+        stage('Lauch ') {
+            steps {
+                build job: 'BuildJavaImage', parameters: 
+                [
+                    string(value: 'amazoncorretto', name: 'image')
+                    string(value: '17-al2-jdk', name: 'tag')
+                    string(value: 'verkeur08/gestioncomptes', name: 'newImage')
+                ]            
+            }
+        }        
 
     }
 }
