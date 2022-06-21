@@ -7,9 +7,13 @@ pipeline {
     }
 
     stages {
+        stage('Clean workspace'){
+            steps{
+            	cleanWs()
+            }
+        }
         stage('récupération du code source et récupération de la bonne branch') {
             steps {
-                cleanWS()
                 checkout([$class: 'GitSCM',
                     branches: [[name: "*/${GIT_BRANCH}"]],
                     doGenerateSubmoduleConfigurations: false,
