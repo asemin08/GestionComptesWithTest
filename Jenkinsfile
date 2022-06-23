@@ -25,21 +25,6 @@ pipeline {
                 ])
             }
         }
-        stage('SonarQube analysis') {
-          tools {
-            sonarQube 'SonarQube Scanner 2.8'
-          }
-          steps {
-            withSonarQubeEnv('SonarQube Scanner') {
-              sh 'sonar-scanner'
-            }
-          }
-        }
-        stage("Quality gate") {
-            steps {
-                waitForQualityGate abortPipeline: true
-            }
-        }
 
         stage('Compile du projet') {
             steps {
@@ -73,7 +58,15 @@ pipeline {
                 
         stage('packaging du projet') {
             steps {
-                sh("mvn package")
+                withSonarQubeEnv('SonarQube') {
+                    sh("mvn package sonar:sonar")
+                }
+            }
+        }
+        
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
             }
         }
 
