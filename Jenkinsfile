@@ -58,18 +58,17 @@ pipeline {
                 
         stage('packaging du projet') {
             steps {
-                sh("mvn package")
-//                 withSonarQubeEnv('SonarQube') {
-//                     sh("mvn package sonar:sonar")
-//                 }
+                withSonarQubeEnv('SonarQube') {
+                    sh("mvn package sonar:sonar")
+                }
             }
         }
         
-//         stage("Quality gate") {
-//             steps {
-//                 waitForQualityGate abortPipeline: true
-//             }
-//         }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
 
         stage('Maven nexus archive') {
             steps {
