@@ -26,11 +26,14 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh "./gradlew sonarqube"
-                }
+          tools {
+            sonarQube 'SonarQube Scanner 2.8'
+          }
+          steps {
+            withSonarQubeEnv('SonarQube Scanner') {
+              sh 'sonar-scanner'
             }
+          }
         }
         stage("Quality gate") {
             steps {
