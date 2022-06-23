@@ -72,7 +72,7 @@ pipeline {
 
         stage('Maven nexus archive') {
             steps {
-                sh("mvn deploy -DskipTests -Dmaven.install.skip=true")
+                sh("mvn deploy -DskipTests")
             }
         }
 
