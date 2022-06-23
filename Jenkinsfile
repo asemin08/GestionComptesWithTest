@@ -40,6 +40,7 @@ pipeline {
             post {
                 success{
                     junit '**/target/surefire-reports/*.xml'
+                    jacoco execPattern: '**/target/**.exec'
                     emailext body: '$PROJECT_NAME - test # $BUILD_NUMBER - $BUILD_STATUS: Lien $BUILD_URL pour voir les résultat des test.', subject: '$PROJECT_NAME - Test ok ! # $BUILD_NUMBER - $BUILD_STATUS!', to: 'allan.semin@gmail.com'
                 }
                 failure{
