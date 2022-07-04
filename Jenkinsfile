@@ -75,6 +75,17 @@ pipeline {
                 sh("mvn deploy -DskipTests")
             }
         }
+        
+        stage("Run Gatling") {
+            steps {
+                sh 'mvn gatling:test'
+            }
+            post {
+                always {
+                    gatlingArchive()
+                }
+            }
+        }
 
         stage('lancement du build  pour créer l\'image') {
             steps {
