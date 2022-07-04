@@ -81,6 +81,21 @@
             <version>1.8.2</version>
             <scope>test</scope>
         </dependency>
+         <dependency>
+             <groupId>io.gatling.highcharts</groupId>
+             <artifactId>gatling-charts-highcharts</artifactId>
+             <version>3.3.1</version>
+         </dependency>
+         <dependency>
+             <groupId>io.gatling</groupId>
+             <artifactId>gatling-app</artifactId>
+             <version>3.3.1</version>
+         </dependency>
+         <dependency>
+             <groupId>io.gatling</groupId>
+             <artifactId>gatling-recorder</artifactId>
+             <version>3.3.1</version>
+         </dependency>
 
     </dependencies>
 
@@ -139,6 +154,11 @@
                     <show>private</show>
                     <nohelp>true</nohelp>
                 </configuration>
+            </plugin>
+            <plugin>
+             <groupId>io.gatling</groupId>
+             <artifactId>gatling-maven-plugin</artifactId>
+             <version>3.0.5</version>
             </plugin>
         </plugins>
     </build>
