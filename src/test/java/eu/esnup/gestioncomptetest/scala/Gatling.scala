@@ -8,7 +8,7 @@ class Gatling extends Simulation {
 
   val httpProtocol = http
     .baseUrl("http://computer-database.gatling.io")
-    .inferHtmlResources(BlackList(""".*\.css""", """.*\.js""", """.*\.ico"""), WhiteList())
+    .inferHtmlResources(DenyList(""".*\.css""", """.*\.js""", """.*\.ico"""))
     .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8")
     .acceptEncodingHeader("gzip, deflate")
     .acceptLanguageHeader("it-IT,it;q=0.8,en-US;q=0.5,en;q=0.3")
