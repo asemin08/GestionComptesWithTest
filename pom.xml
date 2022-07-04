@@ -96,8 +96,16 @@
              <artifactId>gatling-recorder</artifactId>
              <version>3.3.1</version>
          </dependency>
+             
+         <exclusions>
+            <exclusion>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+            </exclusion>
+          </exclusions> 
 
     </dependencies>
+
 
     <build>
         <plugins>
